@@ -54,6 +54,7 @@ CREATE TABLE users (
 
 ```
 npm install
+npm install -g typescript @types/node
 ts-node index.ts
 ```
 
