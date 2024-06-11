@@ -1,16 +1,16 @@
 import config from './config'
 const {Client} = require('pg')
 
+const dbConfig = config.env === 'development' ? config.database.dev : config.database.production;
+
 const client = new Client({
-    host: config.database.dev.host,
-    user: config.database.dev.username,
-    port: config.database.dev.port,
-    password: config.database.dev.password,
-    database: config.database.dev.name,
-})
+    host: dbConfig.host,
+    user: dbConfig.username,
+    port: Number(dbConfig.port),
+    password: dbConfig.password,
+    database: dbConfig.name,
+});
 
-client.connect()
+client.connect();
 
-export {
-    client
-}
+export { client };
